@@ -10,6 +10,7 @@
   "author": "phi.nguyen",
   "license": "ISC",
   "dependencies": {
-    "ftp-client": "^0.2.2"
+    "ftp-client": "^0.2.2",
+    "lodash": "^4.17.15"
   }
 }
