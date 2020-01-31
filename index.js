@@ -2,7 +2,7 @@ var ftp = require('./node_modules/ftp-client');
 var fs = require('fs');
 
 let config = {
-    host: '192.168.10.5',
+    host: '192.168.43.107',
     port: 21,
     user: 'TestFTP1',
     password: '123456'
@@ -67,13 +67,16 @@ sendFile = () => {
     client = new ftp(config, options);
     client.connect(() => {
         console.log('connected to ftp');
-        var dir = 'D:/FolderFTP1';
+        var dir = 'C:/FolderFTP1';
 
         let filepath = generateFile();
         client.upload(filepath, dir, {
             overwrite: 'none' },
             function (result) {
                 console.log(result);
+                fs.unlink(filepath, () => {
+                    console.log('delted ', filepath);
+                });
         });
     });
 }
