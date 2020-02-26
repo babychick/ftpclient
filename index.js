@@ -75,7 +75,7 @@ sendFile = () => {
             function (result) {
                 console.log(result);
                 fs.unlink(filepath, () => {
-                    console.log('delted ', filepath);
+                    console.log('deleted ', filepath);
                 });
         });
     });
