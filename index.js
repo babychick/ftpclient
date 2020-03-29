@@ -1,6 +1,7 @@
 var ftp = require('./node_modules/ftp-client');
 var fs = require('fs');
 
+const drive = "C:/";
 let config1 = {
     host: '192.168.0.101',
     port: 21,
@@ -19,6 +20,13 @@ let config3 = {
     host: '192.168.0.101',
     port: 21,
     user: 'TestFTP3',
+    password: '123456'
+};
+
+let config4 = {
+    host: '192.168.0.101',
+    port: 21,
+    user: 'TestFTP4',
     password: '123456'
 };
 
@@ -133,7 +141,7 @@ sendFile = async () => {
     client1 = new ftp(config1, options);
     await client1.connect(() => {
         
-        var dir2 = 'C:/FTPFolder/NUOC_THAI/NT_KhachHang2';
+        var dir2 = drive + 'FTPFolder/NUOC_THAI/NT_KhachHang2';
         let filePath2 = generateNTFile('BL_TT02_NT_');
         sendAction(client1, dir2, filePath2);
     });
@@ -141,17 +149,24 @@ sendFile = async () => {
     client2 = new ftp(config2, options);
     await client2.connect(() => {
         
-        var dir4 = 'C:/FTPFolder/NUOC_THAI/NT_KhachHang4';
+        var dir4 = drive + 'FTPFolder/NUOC_THAI/NT_KhachHang4';
         let filePath4 = generateNTFile('BL_TT04_NT_');
         sendAction(client2, dir4, filePath4);
     });
 
     client3 = new ftp(config3, options);
     await client3.connect(() => {
-        var dir6 = 'C:/FTPFolder/NUOC_NGAM/NN_KhachHang6';
+        var dir6 = drive + 'FTPFolder/NUOC_NGAM/NN_KhachHang6';
         let filePath6 = generateNNFile('BL_TT06_NN_');
         sendAction(client3, dir6, filePath6);
     });  
+
+    client4 = new ftp(config4, options);
+    await client4.connect(() => {
+        var dir8 = drive + 'FTPFolder/NUOC_NGAM/NN_KhachHang8';
+        let filePath8 = generateNNFile('BL_TT08_NN_');
+        sendAction(client4, dir8, filePath8);
+    });
 }
 
 let startTime = new Date().getMinutes();
