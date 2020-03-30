@@ -1,31 +1,33 @@
 var ftp = require('./node_modules/ftp-client');
 var fs = require('fs');
 
-const drive = "C:/";
+const drive = "D:/";
+const ip = '192.168.0.104';
+const port = 21;
 let config1 = {
-    host: '192.168.0.101',
-    port: 21,
+    host: ip,
+    port: port,
     user: 'TestFTP1',
     password: '123456'
 };
 
 let config2 = {
-    host: '192.168.0.101',
-    port: 21,
+    host: ip,
+    port: port,
     user: 'TestFTP2',
     password: '123456'
 };
 
 let config3 = {
-    host: '192.168.0.101',
-    port: 21,
+    host: ip,
+    port: port,
     user: 'TestFTP3',
     password: '123456'
 };
 
 let config4 = {
-    host: '192.168.0.101',
-    port: 21,
+    host: ip,
+    port: port,
     user: 'TestFTP4',
     password: '123456'
 };
